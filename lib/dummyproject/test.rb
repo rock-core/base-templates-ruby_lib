@@ -5,10 +5,10 @@ if ENV['TEST_ENABLE_COVERAGE'] == '1'
         require 'simplecov'
     rescue LoadError
         require 'syskit'
-        Syskit.warn "coverage is disabled because the 'simplecov' gem cannot be loaded"
+        DummyProject.warn "coverage is disabled because the 'simplecov' gem cannot be loaded"
     rescue Exception => e
         require 'syskit'
-        Syskit.warn "coverage is disabled: #{e.message}"
+        DummyProject.warn "coverage is disabled: #{e.message}"
     end
 end
 
@@ -21,7 +21,7 @@ if ENV['TEST_ENABLE_PRY'] != '0'
     begin
         require 'pry'
     rescue Exception
-        Syskit.warn "debugging is disabled because the 'pry' gem cannot be loaded"
+        DummyProject.warn "debugging is disabled because the 'pry' gem cannot be loaded"
     end
 end
 
