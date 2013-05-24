@@ -4,10 +4,10 @@ if ENV['TEST_ENABLE_COVERAGE'] == '1'
     begin
         require 'simplecov'
     rescue LoadError
-        require 'syskit'
+        require 'dummy_project'
         DummyProject.warn "coverage is disabled because the 'simplecov' gem cannot be loaded"
     rescue Exception => e
-        require 'syskit'
+        require 'dummy_project'
         DummyProject.warn "coverage is disabled: #{e.message}"
     end
 end
