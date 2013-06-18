@@ -7,6 +7,9 @@
   <url>dummy-url</url>
   <logo>dummy-logo-url</logo>
 
+  <depend package="hoe" />
+  <depend package="hoe-yard" />
+  <depend package="rake-compiler" />
   <depend package="utilrb" />
   <!--
    To add any dependencies use the depend tag

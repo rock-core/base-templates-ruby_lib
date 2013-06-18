@@ -111,3 +111,17 @@ fi
 
 sed -i "s#dummy-cflags#$PKG_CFLAGS#" $MANIFEST
 sed -i "s#dummy-lflags#$PKG_LFLAGS#" $MANIFEST
+
+############################################
+# Setup extension from manifest information
+############################################
+export PACKAGE_SHORT_NAME
+export PKG_DESC
+export PKG_LONG_DESC
+export PKG_AUTHOR
+export PKG_EMAIL
+export PKG_URL
+export PKG_LICENSE
+if [ -e "prepare_ruby_c_extension.sh" ]; then
+    sh prepare_ruby_c_extension.sh
+fi

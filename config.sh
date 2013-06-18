@@ -65,11 +65,13 @@ find . -type f -name '*dummyproject*' | while read path; do
 done
 
 # Configure the manifest
+export PACKAGE_SHORT_NAME
 sh config_manifest.sh
 
 #delete setup scripts
 rm config_manifest.sh
 rm config.sh
+rm prepare_ruby_c_extension.sh
 
 # creating a new git project --add adapted dummy-project contents and commit
 git init --shared=0770
