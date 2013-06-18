@@ -1,5 +1,5 @@
 package_name = 'dummy-package-name'
-package_name_ext = "#{package_name}_ext"
+package_name_ext = "#{package_name}"
 begin
     require 'hoe'
     Hoe::plugin :compiler
