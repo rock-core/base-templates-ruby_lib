@@ -1,5 +1,6 @@
+task :default 
+
 package_name = 'dummy-package-name'
-package_name_ext = "#{package_name}"
 begin
     require 'hoe'
     Hoe::plugin :compiler
@@ -27,26 +28,7 @@ begin
         yard_markup = :markdown
     end
 
-    Rake.clear_tasks(/^default$/)
-    Rake.clear_tasks(/doc/)
-
-    task :default => []
     task :doc => :yard
-
-    # Check if there are files to build the extension
-    ext_files = FileList["ext/#{package_name_ext}/*.c*"]
-    if not ext_files.empty?
-        hoe_spec.spec.extensions = FileList["ext/#{package_name_ext}/extconf.rb"]
-
-        require 'rake/extensiontask'
-        Rake::ExtensionTask.new("#{package_name_ext}") do |ext|
-            ext.lib_dir = 'lib'
-            ext.tmp_dir = 'build'
-            ext.source_pattern = "*.{c,cpp}"
-        end
-
-        task :default => "compile:#{package_name_ext}"
-    end
 
 rescue LoadError => e
     puts "Extension for '#{package_name}' cannot be build -- loading hoe gem failed: #{e}"
