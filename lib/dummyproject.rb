@@ -1,4 +1,5 @@
 require 'dummyproject/dummyproject'
+require 'dummyproject/base'
 
 # The toplevel namespace for dummyproject
 #

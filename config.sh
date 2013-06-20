@@ -58,6 +58,7 @@ find . -type f ! -name 'config.sh' -exec sed -i "s#dummyproject#$PACKAGE_SHORT_N
 PACKAGE_SHORT_NAME_CAMELIZED=`echo $PACKAGE_SHORT_NAME | sed 's=\(_\|^\)\([A-Za-z]\)=\u\2=g'`
 find . -type f ! -name 'config.sh' -exec sed -i "s#DummyProject#$PACKAGE_SHORT_NAME_CAMELIZED#g" {} \;
 mv lib/dummyproject lib/$PACKAGE_SHORT_NAME
+mv ext/dummyproject ext/$PACKAGE_SHORT_NAME
 # also rename the relevant files
 find . -type f -name '*dummyproject*' | while read path; do
     newpath=`echo $path | sed "s#dummyproject#$PACKAGE_SHORT_NAME#"`
