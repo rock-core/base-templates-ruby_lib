@@ -3,6 +3,7 @@
 if ENV['TEST_ENABLE_COVERAGE'] == '1'
     begin
         require 'simplecov'
+        SimpleCov.start
     rescue LoadError
         require 'dummy_project'
         DummyProject.warn "coverage is disabled because the 'simplecov' gem cannot be loaded"
