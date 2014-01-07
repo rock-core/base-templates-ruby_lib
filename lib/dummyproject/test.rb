@@ -48,6 +48,10 @@ module DummyProject
         end
 
         def teardown
+            if defined? FlexMock
+                flexmock_teardown
+            end
+            super
             # Teardown code for all the tests
         end
     end
